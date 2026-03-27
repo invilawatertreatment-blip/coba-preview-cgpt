@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invila™ | Zero Capex Water Infrastructure</title>
+  <meta name="description" content="Invila™ premium B2B industrial landing page hero. Zero Capex Water Infrastructure with Water as a Service model." />
+  <style>
+    :root {
+      --bg: #f7fafc;
+      --surface: rgba(255,255,255,0.82);
+      --surface-strong: #ffffff;
+      --ink: #0f172a;
+      --muted: #5f6f86;
+      --line: rgba(15, 23, 42, 0.08);
+      --line-strong: rgba(15, 23, 42, 0.14);
+      --brand: #1d4ed8;
+      --brand-2: #3b82f6;
+      --brand-3: #93c5fd;
+      --shadow-soft: 0 20px 60px rgba(15, 23, 42, 0.08);
+      --shadow-card: 0 18px 40px rgba(15, 23, 42, 0.10);
+      --radius-xl: 28px;
+      --radius-2xl: 36px;
+      --radius-pill: 999px;
+      --max: 1240px;
+      --transition: 240ms ease;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 15%, rgba(147, 197, 253, 0.22), transparent 28%),
+        radial-gradient(circle at 92% 18%, rgba(59, 130, 246, 0.10), transparent 26%),
+        linear-gradient(180deg, #ffffff 0%, #f8fbff 35%, #f6f9fc 100%);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(29, 78, 216, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(29, 78, 216, 0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.5), transparent 82%);
+      z-index: -2;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .shell { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.72);
+      border-bottom: 1px solid rgba(255,255,255,0);
+      transition: var(--transition);
+    }
+
+    .site-header.scrolled {
+      background: rgba(255,255,255,0.86);
+      border-bottom-color: var(--line);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 84px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(29, 78, 216, 0.16), rgba(59, 130, 246, 0.08)),
+        #fff;
+      border: 1px solid rgba(29, 78, 216, 0.12);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 8px 24px rgba(29,78,216,0.10);
+    }
+
+    .brand-mark svg { width: 24px; height: 24px; }
+
+    .brand-copy { display: grid; gap: 2px; }
+    .brand-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .brand-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brand);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #54657c;
+      transition: var(--transition);
+    }
+
+    .nav a:hover { color: var(--brand); background: rgba(59,130,246,0.06); }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 0 24px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 14px 34px rgba(29, 78, 216, 0.26);
+    }
+
+    .btn-primary:hover { box-shadow: 0 18px 38px rgba(29, 78, 216, 0.34); }
+
+    .btn-secondary {
+      color: var(--ink);
+      background: rgba(255,255,255,0.78);
+      border-color: rgba(15, 23, 42, 0.10);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .btn-secondary:hover {
+      background: #fff;
+      border-color: rgba(15, 23, 42, 0.14);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.8);
+      color: var(--ink);
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      margin: 0 auto;
+      transition: var(--transition);
+    }
+
+    .menu-toggle span { margin: 5px auto; }
+    .menu-toggle.is-open::before { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.is-open span { opacity: 0; }
+    .menu-toggle.is-open::after { transform: translateY(-7px) rotate(-45deg); }
+
+    .hero {
+      position: relative;
+      padding: 56px 0 48px;
+      isolation: isolate;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(18px);
+      z-index: -1;
+      opacity: 0.9;
+    }
+
+    .hero::before {
+      width: 280px;
+      height: 280px;
+      right: 6%;
+      top: 90px;
+      background: radial-gradient(circle, rgba(96,165,250,0.20), transparent 72%);
+    }
+
+    .hero::after {
+      width: 220px;
+      height: 220px;
+      left: 4%;
+      top: 180px;
+      background: radial-gradient(circle, rgba(191,219,254,0.34), transparent 72%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-copy { padding: 26px 0 20px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(29, 78, 216, 0.10);
+      color: var(--brand);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 0 0 6px rgba(59,130,246,0.10);
+      animation: pulse 2.3s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59,130,246,0.18); }
+      50% { transform: scale(1.08); box-shadow: 0 0 0 8px rgba(59,130,246,0.05); }
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 11ch;
+      font-size: clamp(2.9rem, 7vw, 5.5rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      font-weight: 950;
+    }
+
+    .hero h1 .accent {
+      display: inline-block;
+      background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 56%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      margin: 26px 0 0;
+      max-width: 700px;
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .hero-sub strong { color: var(--ink); }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 28px 0 0;
+      max-width: 760px;
+    }
+
+    .hero-point {
+      border: 1px solid rgba(15,23,42,0.08);
+      background: rgba(255,255,255,0.7);
+      padding: 14px 16px;
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.03);
+    }
+
+    .hero-point b {
+      display: block;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--brand);
+      margin-bottom: 6px;
+    }
+
+    .hero-point span {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--ink);
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin-top: 22px;
+      color: #64748b;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta i {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--brand);
+      display: inline-block;
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.08);
+    }
+
+    .hero-panel {
+      position: relative;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: var(--radius-2xl);
+      padding: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.84));
+      border: 1px solid rgba(255,255,255,0.78);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(147,197,253,0.22), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.24), transparent 55%);
+      pointer-events: none;
+    }
+
+    .panel-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(29,78,216,0.08);
+      color: var(--brand);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .panel-title {
+      font-size: 1.65rem;
+      line-height: 1.15;
+      margin: 0;
+      max-width: 12ch;
+      letter-spacing: -0.04em;
+      font-weight: 900;
+    }
+
+    .panel-copy {
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.98rem;
+      max-width: 42ch;
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .metric {
+      position: relative;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(247,250,252,0.9);
+      border: 1px solid rgba(15,23,42,0.06);
+    }
+
+    .metric-label {
+      display: block;
+      color: #5d6f88;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .metric-value {
+      display: block;
+      color: var(--ink);
+      font-weight: 900;
+      font-size: 1.15rem;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+    }
+
+    .metric-note {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .panel-ribbon {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border: 1px solid rgba(59,130,246,0.14);
+    }
+
+    .panel-ribbon b {
+      display: block;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--brand);
+      margin-bottom: 4px;
+    }
+
+    .panel-ribbon span {
+      display: block;
+      font-size: 0.98rem;
+      font-weight: 800;
+      line-height: 1.45;
+      color: #11316d;
+    }
+
+    .panel-ribbon strong {
+      font-size: 1.45rem;
+      font-weight: 950;
+      color: #0f2b68;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+
+    .floating-chip {
+      position: absolute;
+      right: -18px;
+      top: -22px;
+      min-width: 160px;
+      padding: 14px 16px;
+      border-radius: 22px;
+      background: rgba(15,23,42,0.92);
+      color: #fff;
+      box-shadow: 0 20px 38px rgba(15,23,42,0.22);
+    }
+
+    .floating-chip small {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.66);
+      margin-bottom: 6px;
+      font-weight: 800;
+    }
+
+    .floating-chip strong {
+      display: block;
+      font-size: 1.08rem;
+      letter-spacing: -0.03em;
+      font-weight: 900;
+    }
+
+    .floating-chip span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.45;
+    }
+
+    .hero-strip {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .strip-card {
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.74);
+      border: 1px solid rgba(15,23,42,0.08);
+      border-radius: 24px;
+      box-shadow: 0 12px 26px rgba(15,23,42,0.04);
+    }
+
+    .strip-card b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.70rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--brand);
+    }
+
+    .strip-card span {
+      display: block;
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    .section-placeholder {
+      padding: 76px 0 84px;
+    }
+
+    .placeholder-box {
+      padding: 30px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(15,23,42,0.08);
+      border-radius: 28px;
+      box-shadow: 0 14px 32px rgba(15,23,42,0.04);
+    }
+
+    .placeholder-box h2 {
+      margin: 0 0 10px;
+      font-size: 1.55rem;
+      letter-spacing: -0.04em;
+    }
+
+    .placeholder-box p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 62ch;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero h1 { max-width: none; }
+      .hero-card { max-width: 760px; }
+      .floating-chip { right: 16px; top: -16px; }
+      .hero-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 900px) {
+      .nav,
+      .header-cta { display: none; }
+      .menu-toggle { display: inline-block; }
+      .mobile-panel {
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 320ms ease;
+      }
+      .mobile-panel.is-open { max-height: 480px; }
+      .mobile-panel-inner {
+        padding: 0 0 18px;
+        display: grid;
+        gap: 10px;
+      }
+      .mobile-panel a,
+      .mobile-panel button {
+        width: 100%;
+      }
+      .mobile-link {
+        display: block;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.8);
+        border: 1px solid var(--line);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+    }
+
+    @media (min-width: 901px) {
+      .mobile-panel { display: none !important; }
+    }
+
+    @media (max-width: 720px) {
+      .header-row { min-height: 74px; }
+      .hero { padding-top: 30px; }
+      .hero-points,
+      .hero-strip,
+      .panel-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .panel-ribbon { grid-template-columns: 1fr; }
+      .panel-ribbon strong { white-space: normal; }
+      .floating-chip {
+        position: static;
+        margin: 0 0 14px auto;
+        width: fit-content;
+      }
+      .hero-card { padding: 22px; }
+      .strip-card, .metric, .hero-point { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="shell">
+      <div class="header-row">
+        <a href="#hero" class="brand" aria-label="Invila home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 16.5L12 4L18 16.5" stroke="#1D4ED8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.8 12.5H15.2" stroke="#60A5FA" stroke-width="1.9" stroke-linecap="round"/>
+              <circle cx="12" cy="17.2" r="1.6" fill="#1D4ED8"/>
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <span class="brand-name">Invila™</span>
+            <span class="brand-tag">Water as a Service</span>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#zero-capex">Zero Capex</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#case-studies">Case Studies</a>
+          <a href="#scada-iot">SCADA-IoT</a>
+        </nav>
+
+        <div class="header-cta">
+          <a class="btn btn-secondary" href="#assessment">Request Site Assessment</a>
+          <a class="btn btn-primary" href="#contact">Talk to Invila™</a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Toggle menu">
+          <span></span>
+        </button>
+      </div>
+
+      <div class="mobile-panel" id="mobilePanel">
+        <div class="mobile-panel-inner">
+          <a class="mobile-link" href="#zero-capex">Zero Capex</a>
+          <a class="mobile-link" href="#solutions">Solutions</a>
+          <a class="mobile-link" href="#case-studies">Case Studies</a>
+          <a class="mobile-link" href="#scada-iot">SCADA-IoT</a>
+          <a class="btn btn-secondary" href="#assessment">Request Site Assessment</a>
+          <a class="btn btn-primary" href="#contact">Talk to Invila™</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="shell">
+        <div class="hero-grid">
+          <div class="hero-copy fade-up">
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              <span>Industrial Water Infrastructure Partner</span>
+            </div>
+
+            <h1>
+              Zero Capex Water Infrastructure
+              <span class="accent">for Industrial Growth</span>
+            </h1>
+
+            <p class="hero-sub">
+              <strong>Invila™</strong> membantu industri mengamankan suplai air, menjaga stabilitas operasional,
+              dan mengurangi beban biaya melalui model <strong>Water as a Service</strong>.
+            </p>
+
+            <div class="hero-points" aria-label="Executive value points">
+              <article class="hero-point">
+                <b>Capital Focus</b>
+                <span>Alokasi modal tetap fokus pada ekspansi bisnis utama.</span>
+              </article>
+              <article class="hero-point">
+                <b>Operational Stability</b>
+                <span>Reliabilitas suplai air yang lebih terukur untuk operasi industri.</span>
+              </article>
+              <article class="hero-point">
+                <b>Commercial Model</b>
+                <span>Pay-as-you-use dengan struktur biaya yang lebih terkendali.</span>
+              </article>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Talk to Invila™ via WhatsApp</a>
+              <a class="btn btn-secondary" href="#assessment">Request Site Assessment</a>
+            </div>
+
+            <div class="hero-meta">
+              <span><i></i>Visit factory available for strategic project review</span>
+              <span><i></i>Zero upfront CapEx structure</span>
+            </div>
+          </div>
+
+          <div class="hero-panel fade-up">
+            <div class="floating-chip">
+              <small>Installation Window</small>
+              <strong>1–3 Months</strong>
+              <span>Modular deployment for faster readiness.</span>
+            </div>
+
+            <div class="hero-card">
+              <div class="panel-kicker">Executive Snapshot</div>
+              <h2 class="panel-title">A strategic utility model, not a conventional water vendor.</h2>
+              <p class="panel-copy">
+                Invila™ combines infrastructure coverage, Water as a Service commercial logic, and SCADA-IoT visibility to support industrial continuity.
+              </p>
+
+              <div class="panel-grid">
+                <article class="metric">
+                  <span class="metric-label">Infrastructure Value</span>
+                  <span class="metric-value">Covered by Invila™</span>
+                  <span class="metric-note">Mengurangi beban investasi awal di sisi klien.</span>
+                </article>
+                <article class="metric">
+                  <span class="metric-label">Commercial Model</span>
+                  <span class="metric-value">Water as a Service</span>
+                  <span class="metric-note">Biaya lebih dekat ke konsumsi dan performa aktual.</span>
+                </article>
+                <article class="metric">
+                  <span class="metric-label">Monitoring Layer</span>
+                  <span class="metric-value">SCADA-IoT Ready</span>
+                  <span class="metric-note">Transparansi data untuk kontrol operasional yang lebih baik.</span>
+                </article>
+                <article class="metric">
+                  <span class="metric-label">Strategic Outcome</span>
+                  <span class="metric-value">Stability + Savings</span>
+                  <span class="metric-note">Diarahkan pada continuity, efficiency, dan capital preservation.</span>
+                </article>
+              </div>
+
+              <div class="panel-ribbon">
+                <div>
+                  <b>Why CEOs pay attention</b>
+                  <span>Shifts water infrastructure from asset burden to a more measurable operating model.</span>
+                </div>
+                <strong>Zero Upfront CapEx</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-strip fade-up" aria-label="Hero highlights">
+          <article class="strip-card">
+            <b>Zero Capex</b>
+            <span>Infrastructure investment covered through the Invila™ model.</span>
+          </article>
+          <article class="strip-card">
+            <b>WaaS Model</b>
+            <span>Commercial structure aligned with water usage and performance delivery.</span>
+          </article>
+          <article class="strip-card">
+            <b>Operational Readiness</b>
+            <span>Modular implementation targeted for a 1–3 month installation window.</span>
+          </article>
+          <article class="strip-card">
+            <b>Digital Visibility</b>
+            <span>SCADA-IoT monitoring to strengthen control, transparency, and response time.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-placeholder" id="zero-capex">
+      <div class="shell">
+        <div class="placeholder-box fade-up">
+          <h2>Zero Capex Section Placeholder</h2>
+          <p>Area ini disiapkan untuk section berikutnya. Hero sudah dibuat sebagai fokus utama, dan anchor tetap aktif agar file bisa dipreview sebagai halaman utuh.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-placeholder" id="solutions">
+      <div class="shell">
+        <div class="placeholder-box fade-up">
+          <h2>Solutions Section Placeholder</h2>
+          <p>Bagian ini dapat diisi dengan model solusi Invila™: Zero Capex Infrastructure, Water as a Service, dan SCADA-IoT Visibility.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-placeholder" id="case-studies">
+      <div class="shell">
+        <div class="placeholder-box fade-up">
+          <h2>Case Studies Section Placeholder</h2>
+          <p>Section ini disiapkan untuk proven results, use cases industri, atau snapshot assessment yang mendukung trust sebelum CTA final.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-placeholder" id="scada-iot">
+      <div class="shell">
+        <div class="placeholder-box fade-up">
+          <h2>SCADA-IoT Section Placeholder</h2>
+          <p>Area ini dapat diisi monitoring narrative, transparency layer, compliance visibility, dan operational control value.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-placeholder" id="assessment">
+      <div class="shell">
+        <div class="placeholder-box fade-up">
+          <h2>Request Site Assessment</h2>
+          <p>Gunakan section ini untuk form singkat, project intake, atau ajakan visit factory. Tombol CTA sudah diarahkan ke anchor ini.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-placeholder" id="contact">
+      <div class="shell">
+        <div class="placeholder-box fade-up">
+          <h2>Talk to Invila™</h2>
+          <p>Ganti block ini dengan tombol WhatsApp, nomor kontak, atau CTA konsultasi proyek agar tetap konsisten dengan funnel conversion LP Anda.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const siteHeader = document.getElementById('siteHeader');
+    const menuToggle = document.getElementById('menuToggle');
+    const mobilePanel = document.getElementById('mobilePanel');
+    const mobileLinks = mobilePanel.querySelectorAll('a');
+
+    function handleScroll() {
+      if (window.scrollY > 12) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+    }
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = menuToggle.classList.toggle('is-open');
+        mobilePanel.classList.toggle('is-open', isOpen);
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('is-open');
+        mobilePanel.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.18,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
